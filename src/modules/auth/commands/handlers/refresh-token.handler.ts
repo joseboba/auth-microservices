@@ -27,6 +27,11 @@ export class RefreshTokenHandler
 
     const decodedTokenRequest = this._jwtService.decodeJwtToken(refreshToken);
     const email = decodedTokenRequest.email;
+    const expDate = new Date(decodedTokenRequest.exp * 1000);
+
+    if (expDate < new Date()) {
+      throw BusinessErrors.RefreshTokenHasExpired;
+    }
 
     const findUser = await this._userAppRepository.findOne({
       where: { email },

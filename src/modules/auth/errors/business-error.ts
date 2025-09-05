@@ -12,6 +12,11 @@ export class BusinessErrors {
     'User is inactive. Please contact the administrator',
   );
 
+  public static readonly RefreshTokenHasExpired = new BusinessError(
+    'AUTH.RefreshTokenHasExpired',
+    'Refresh token has expired',
+  );
+
   public static readonly UserNotFound = new BusinessError(
     'AUTH.UserNotFound',
     'User not found',
