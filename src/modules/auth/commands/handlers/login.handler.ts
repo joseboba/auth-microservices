@@ -53,6 +53,7 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
       email,
       name: findUser.name,
       userType: findUser.userType.userTypeCode,
+      role: findUser.userType.roleCode,
       authorities,
     });
 
